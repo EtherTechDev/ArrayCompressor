@@ -7,10 +7,10 @@ Uses a combination of RLE and Huffman Encoding to achieve well-compressed output
 Typical use cases for this library are:
 1. Compression of large arrays of alpha values for images
 2. Compression of large arrays of Graph data
-3. Compression of large arrays of any number of the same values in groups which benefits from RLE (run-length encoding).
+3. Compression of large arrays of any number of consecutive values in groups which benefits from RLE (Run-Length Encoding).
 
-Example use case:
-input:
+Example:
+--------
 // Let's define an array with some arbitrary data, in this case some pixel alpha values.
 
 let dataToCompress = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 32, 32, 255, 255, 255, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 32, 255, 255, 255, 255, 32,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 255, 255, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,  128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128];
@@ -25,6 +25,8 @@ let compressedData = ArrayComperssor.compress(dataToCompress);
 let decompressedData = ArrayComperssor.decompress(compressedData);
 
 // decompressedData is now same as dataToCompress!
+
+The larger the array, and the larger the blocks with consecutive values, the larger the gains of compression.
 
 TODO:
 1. Add checks for errors
