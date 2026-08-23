@@ -6,7 +6,7 @@ Uses a combination of RLE and Huffman Encoding to achieve well-compressed output
 
 Typical use cases for this library are:
 1. Compression of large arrays of alpha values for images
-2. Compression of large arrays of Graph data
+2. Compression of large arrays of graph data
 3. Compression of large arrays of any number of consecutive values in groups which benefits from RLE (Run-Length Encoding).
 
 Example:
@@ -35,3 +35,5 @@ TODO:
 4. Remove debug printouts
 
 No external library dependencies, the RLE and Huffman compressors is written in-house.
+
+Check out the provided example file for a complete example.
